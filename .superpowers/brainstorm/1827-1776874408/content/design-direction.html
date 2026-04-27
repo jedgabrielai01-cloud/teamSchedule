@@ -1,0 +1,188 @@
+<h2>What design direction feels right?</h2>
+<p class="subtitle">All 3 keep your existing color palette (blue → orange gradient). They differ in density, personality, and visual polish.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#ffffff;border-radius:8px;overflow:hidden;font-family:system-ui;font-size:11px;border:1px solid #e5e7eb;">
+        <!-- Header -->
+        <div style="background:linear-gradient(90deg,#4A78C2,#5F8FD6);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:13px;letter-spacing:0.3px;">Team Schedule</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:9px;">April 2026</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="background:rgba(255,255,255,0.15);color:#fff;padding:3px 8px;border-radius:20px;font-size:9px;">Jed Gabriel</span>
+            <span style="background:rgba(255,255,255,0.1);color:#fff;padding:3px 8px;border-radius:4px;font-size:9px;">Logout</span>
+          </div>
+        </div>
+        <!-- Legend strip -->
+        <div style="background:#f8faff;border-bottom:1px solid #e8edf5;padding:5px 14px;display:flex;gap:10px;">
+          <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#4A78C2;border-radius:2px;display:inline-block;"></span>Primary</span>
+          <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#5F8FD6;border-radius:2px;display:inline-block;"></span>Secondary</span>
+          <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#F07A3F;border-radius:2px;display:inline-block;"></span>On Leave</span>
+          <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#E0642F;border-radius:2px;display:inline-block;"></span>Holiday</span>
+        </div>
+        <!-- Calendar grid -->
+        <div style="padding:10px 14px;background:#fff;">
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;">
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">SUN</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">MON</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">TUE</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">WED</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">THU</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">FRI</div>
+            <div style="text-align:center;font-size:9px;font-weight:600;color:#9ca3af;padding:3px;">SAT</div>
+            <!-- Row 1 -->
+            <div style="background:#f9fafb;border:1px solid #f3f4f6;border-radius:4px;padding:4px;min-height:34px;opacity:0.4;"></div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:4px;min-height:34px;">
+              <div style="font-size:9px;font-weight:600;color:#374151;">1</div>
+              <div style="font-size:7px;background:#4A78C2;color:#fff;border-radius:2px;padding:1px 3px;margin-top:2px;">Abel</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:4px;min-height:34px;">
+              <div style="font-size:9px;font-weight:600;color:#374151;">2</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:4px;min-height:34px;">
+              <div style="font-size:9px;font-weight:600;color:#374151;">3</div>
+              <div style="font-size:7px;background:#F07A3F;color:#fff;border-radius:2px;padding:1px 3px;margin-top:2px;">Jed</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:4px;min-height:34px;">
+              <div style="font-size:9px;font-weight:600;color:#374151;">4</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:4px;min-height:34px;">
+              <div style="font-size:9px;font-weight:600;color:#374151;">5</div>
+            </div>
+            <div style="background:#f9fafb;border:1px solid #f3f4f6;border-radius:4px;padding:4px;min-height:34px;opacity:0.4;"></div>
+          </div>
+        </div>
+        <!-- footer accent -->
+        <div style="height:2px;background:linear-gradient(90deg,#4A78C2,#5F8FD6,#D8B5A6,#F07A3F);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Clean & Professional</h3>
+      <p>Pure white background, thin borders, subtle shadows. Information-first with restrained color use. Looks like a polished internal tool.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#f0f4ff;border-radius:8px;overflow:hidden;font-family:system-ui;font-size:11px;">
+        <!-- Header with depth -->
+        <div style="background:linear-gradient(135deg,#3a6ab5,#5F8FD6);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(74,120,194,0.3);">
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:14px;letter-spacing:-0.3px;">Team Schedule</div>
+            <div style="color:rgba(255,255,255,0.65);font-size:9px;">April 2026 · 5 members active</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:22px;height:22px;background:linear-gradient(135deg,#F07A3F,#E0642F);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:700;">J</div>
+            <span style="color:rgba(255,255,255,0.9);font-size:9px;">Jed</span>
+          </div>
+        </div>
+        <!-- Page bg -->
+        <div style="padding:8px 10px;background:#f0f4ff;">
+          <!-- Legend card -->
+          <div style="background:#fff;border-radius:6px;padding:6px 10px;margin-bottom:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06);display:flex;gap:10px;">
+            <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#4A78C2;border-radius:50%;display:inline-block;"></span>Primary</span>
+            <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#5F8FD6;border-radius:50%;display:inline-block;"></span>Secondary</span>
+            <span style="font-size:8px;color:#374151;display:flex;align-items:center;gap:3px;"><span style="width:8px;height:8px;background:#F07A3F;border-radius:50%;display:inline-block;"></span>On Leave</span>
+          </div>
+          <!-- Calendar card -->
+          <div style="background:#fff;border-radius:6px;padding:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;">
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">SUN</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">MON</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">TUE</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">WED</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">THU</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">FRI</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7280;padding:2px;">SAT</div>
+              <div style="background:#f3f6ff;border-radius:4px;padding:3px;min-height:30px;opacity:0.5;"></div>
+              <div style="background:#fff;border:1px solid #e0e8f5;border-radius:4px;padding:3px;min-height:30px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="font-size:8px;font-weight:700;color:#374151;">1</div>
+                <div style="font-size:7px;background:#4A78C2;color:#fff;border-radius:3px;padding:1px 3px;margin-top:2px;">Abel</div>
+              </div>
+              <div style="background:#fff;border:1px solid #e0e8f5;border-radius:4px;padding:3px;min-height:30px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="font-size:8px;font-weight:700;color:#374151;">2</div>
+              </div>
+              <div style="background:#fff;border:1px solid #e0e8f5;border-radius:4px;padding:3px;min-height:30px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="font-size:8px;font-weight:700;color:#374151;">3</div>
+                <div style="font-size:7px;background:#F07A3F;color:#fff;border-radius:3px;padding:1px 3px;margin-top:2px;">Jed</div>
+              </div>
+              <div style="background:#fff;border:1px solid #e0e8f5;border-radius:4px;padding:3px;min-height:30px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="font-size:8px;font-weight:700;color:#374151;">4</div>
+              </div>
+              <div style="background:#fff;border:1px solid #e0e8f5;border-radius:4px;padding:3px;min-height:30px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="font-size:8px;font-weight:700;color:#374151;">5</div>
+              </div>
+              <div style="background:#f3f6ff;border-radius:4px;padding:3px;min-height:30px;opacity:0.5;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="height:2px;background:linear-gradient(90deg,#4A78C2,#5F8FD6,#D8B5A6,#F07A3F);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Modern SaaS</h3>
+      <p>Soft blue page background, white cards with gentle shadows, avatar initials, subtle depth. Feels like a real internal product (think Notion, Linear, Jira).</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e2433;border-radius:8px;overflow:hidden;font-family:system-ui;font-size:11px;">
+        <!-- Header -->
+        <div style="background:linear-gradient(90deg,#1a3a6e,#2d5ca8);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;">Team Schedule</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.5px;">APRIL 2026</div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <span style="border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:3px 8px;border-radius:4px;font-size:8px;">Jed Gabriel</span>
+          </div>
+        </div>
+        <!-- Dark bg body -->
+        <div style="padding:8px 10px;background:#1e2433;">
+          <div style="background:#252d3f;border-radius:6px;padding:8px;border:1px solid #2d3a52;">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;">
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">SUN</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">MON</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">TUE</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">WED</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">THU</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">FRI</div>
+              <div style="text-align:center;font-size:8px;font-weight:700;color:#6b7a99;padding:2px;letter-spacing:0.5px;">SAT</div>
+              <div style="background:#1e2433;border-radius:3px;padding:3px;min-height:30px;opacity:0.4;"></div>
+              <div style="background:#1e2433;border:1px solid #3a4a6a;border-radius:3px;padding:3px;min-height:30px;">
+                <div style="font-size:8px;font-weight:700;color:#a0aec0;">1</div>
+                <div style="font-size:7px;background:#2d5ca8;color:#93b8f5;border-radius:2px;padding:1px 3px;margin-top:2px;">Abel</div>
+              </div>
+              <div style="background:#1e2433;border:1px solid #3a4a6a;border-radius:3px;padding:3px;min-height:30px;">
+                <div style="font-size:8px;font-weight:700;color:#a0aec0;">2</div>
+              </div>
+              <div style="background:#1e2433;border:1px solid #3a4a6a;border-radius:3px;padding:3px;min-height:30px;">
+                <div style="font-size:8px;font-weight:700;color:#a0aec0;">3</div>
+                <div style="font-size:7px;background:#c45a1a;color:#fdb882;border-radius:2px;padding:1px 3px;margin-top:2px;">Jed</div>
+              </div>
+              <div style="background:#1e2433;border:1px solid #3a4a6a;border-radius:3px;padding:3px;min-height:30px;">
+                <div style="font-size:8px;font-weight:700;color:#a0aec0;">4</div>
+              </div>
+              <div style="background:#252d3f;border:1px solid #4a78c2;border-radius:3px;padding:3px;min-height:30px;">
+                <div style="font-size:8px;font-weight:700;color:#93b8f5;">5</div>
+                <div style="font-size:7px;color:#6b7a99;">(today)</div>
+              </div>
+              <div style="background:#1e2433;border:1px solid #3a4a6a;border-radius:3px;padding:3px;min-height:30px;opacity:0.4;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="height:2px;background:linear-gradient(90deg,#2d5ca8,#4A78C2,#D8B5A6,#F07A3F);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Dark Dashboard</h3>
+      <p>Dark navy background, glowing blue accents, high-contrast text. Looks like a monitoring/ops dashboard. Striking but niche — best for teams that live in dark mode.</p>
+    </div>
+  </div>
+
+</div>

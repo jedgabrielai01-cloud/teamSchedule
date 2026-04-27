@@ -1,0 +1,17 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "fastapi>=0.136.0",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.2",
+    "python-jose[cryptography]>=3.5.0",
+    "uvicorn[standard]>=0.44.0",
+    "python-multipart>=0.0.20",
+]
+
+[tool.uv]
+package = false
