@@ -59,7 +59,19 @@
       "Bash(curl -s -X POST http://localhost:8000/api/auth/login -H \"Content-Type: application/json\" -d '{\"username\":\"Admin\",\"password\":\"RSD\"}')",
       "Bash(curl -s -X POST http://localhost:8000/auth/login -H \"Content-Type: application/json\" -d '{\"username\":\"Admin\",\"password\":\"RSD\"}')",
       "Bash(curl -s -X POST http://localhost:8000/auth/login -H \"Content-Type: application/json\" -d '{\"username\":\"Jed\",\"password\":\"RSD\"}')",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(Copy-Item *)",
+      "Bash(Write-Host \"Files in .planning:\")",
+      "Bash(Measure-Object)",
+      "Bash(Select-Object Count)",
+      "Bash(nFiles in 'backend/tests: *)",
+      "Bash(Write-Host '__CMDSUB_OUTPUT__nFiles in frontend/components:')",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s -X POST http://localhost:8000/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"Admin\",\"password\":\"RSD\"}')",
+      "Bash(curl -s -X GET http://localhost:8000/admin/members -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTc3ODU5MTk4NX0.B9A33To5rQWoI953TAal2TRdkxmCQ5IOxFxxfMVB_cA')",
+      "Bash(curl -s -X POST http://localhost:8000/admin/leaves -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTc3ODU5MTk4NX0.B9A33To5rQWoI953TAal2TRdkxmCQ5IOxFxxfMVB_cA' -H 'Content-Type: application/json' -d '{\"employee_name\":\"Jed\",\"leave_date\":\"2026-05-20\",\"leave_type\":\"personal\"}')",
+      "Bash(curl -s -X GET 'http://localhost:8000/calendar?month=5&year=2026' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTc3ODU5MTk4NX0.B9A33To5rQWoI953TAal2TRdkxmCQ5IOxFxxfMVB_cA')"
     ]
   }
 }

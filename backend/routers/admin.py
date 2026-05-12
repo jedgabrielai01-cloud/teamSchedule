@@ -296,3 +296,72 @@ async def upload_csv(
         "inserted_leaves": inserted_leaves,
         "inserted_schedule": inserted_schedule,
     }
+
+
+class AdminLeaveBody(BaseModel):
+    employee_name: str
+    leave_date: str
+    leave_type: str | None = None
+
+
+@router.post("/leaves", status_code=201)
+def admin_add_leave(
+    body: AdminLeaveBody,
+    _: str = Depends(get_current_admin),
+    db: sqlite3.Connection = Depends(get_db),
+):
+    conflict = db.execute(
+        "SELECT id FROM support_schedule WHERE schedule_date = ? AND primary_oncall = ?",
+        (body.leave_date, body.employee_name),
+    ).fetchone()
+    if conflict:
+        raise HTTPException(
+            status_code=409,
+            detail=f"{body.employee_name} is Primary Support on {body.leave_date} and cannot take leave.",
+        )
+    cur = db.execute(
+        "INSERT INTO leaves (employee_name, leave_date, leave_type) VALUES (?, ?, ?)",
+        (body.employee_name, body.leave_date, body.leave_type),
+    )
+    db.commit()
+    return {"id": cur.lastrowid, **body.model_dump()}
+
+
+@router.put("/leaves/{leave_id}")
+def admin_update_leave(
+    leave_id: int,
+    body: AdminLeaveBody,
+    _: str = Depends(get_current_admin),
+    db: sqlite3.Connection = Depends(get_db),
+):
+    row = db.execute("SELECT id FROM leaves WHERE id = ?", (leave_id,)).fetchone()
+    if not row:
+        raise HTTPException(status_code=404, detail="Leave not found")
+    conflict = db.execute(
+        "SELECT id FROM support_schedule WHERE schedule_date = ? AND primary_oncall = ?",
+        (body.leave_date, body.employee_name),
+    ).fetchone()
+    if conflict:
+        raise HTTPException(
+            status_code=409,
+            detail=f"{body.employee_name} is Primary Support on {body.leave_date} and cannot take leave.",
+        )
+    db.execute(
+        "UPDATE leaves SET employee_name = ?, leave_date = ?, leave_type = ? WHERE id = ?",
+        (body.employee_name, body.leave_date, body.leave_type, leave_id),
+    )
+    db.commit()
+    return {"id": leave_id, **body.model_dump()}
+
+
+@router.delete("/leaves/{leave_id}", status_code=204)
+def admin_delete_leave(
+    leave_id: int,
+    _: str = Depends(get_current_admin),
+    db: sqlite3.Connection = Depends(get_db),
+):
+    row = db.execute("SELECT id FROM leaves WHERE id = ?", (leave_id,)).fetchone()
+    if not row:
+        raise HTTPException(status_code=404, detail="Leave not found")
+    db.execute("DELETE FROM leaves WHERE id = ?", (leave_id,))
+    db.commit()

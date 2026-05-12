@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch } from "@/lib/api";
-import AIPanel from "@/components/AIPanel";
+import FloatingChat from "@/components/FloatingChat";
 import Calendar from "@/components/Calendar";
 
 type Tab = "calendar" | "members" | "upload";
@@ -278,9 +278,7 @@ export default function AdminPage() {
       <div style={{ height: 2, background: "linear-gradient(90deg, #2d5ca8, #4A78C2, #D8B5A6, #F07A3F)" }} />
 
       {/* Tabs + content */}
-      <div className="flex-1 overflow-hidden flex">
-        {/* Left: tabs + panels */}
-        <div className="flex-1 overflow-hidden flex flex-col">
+      <div className="flex-1 overflow-hidden flex flex-col">
           {/* Tab bar */}
           <div
             className="flex shrink-0"
@@ -346,6 +344,10 @@ export default function AdminPage() {
                   leaves={calData.leaves as Parameters<typeof Calendar>[0]["leaves"]}
                   schedule={calData.schedule as Parameters<typeof Calendar>[0]["schedule"]}
                   holidays={calData.holidays as Parameters<typeof Calendar>[0]["holidays"]}
+                  currentUser="Admin"
+                  isAdmin={true}
+                  members={members.map((m) => m.name)}
+                  onMutate={fetchCalData}
                 />
               </div>
             </div>
@@ -540,15 +542,12 @@ export default function AdminPage() {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Right: AI sidebar */}
-        <AIPanel
-          chatEndpoint="/api/ai/admin-chat"
-          clearEndpoint="/api/ai/admin-history"
-          placeholder="Ask about leaves, schedules, or CSV file format."
-        />
       </div>
+      <FloatingChat
+        chatEndpoint="/api/ai/admin-chat"
+        clearEndpoint="/api/ai/admin-history"
+        placeholder="Ask about leaves, schedules, or CSV file format."
+      />
 
       {modal && (
         <Modal

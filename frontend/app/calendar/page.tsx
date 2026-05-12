@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Calendar from "@/components/Calendar";
-import AIPanel from "@/components/AIPanel";
+import FloatingChat from "@/components/FloatingChat";
 import { apiFetch } from "@/lib/api";
 
 interface CalendarData {
@@ -108,18 +108,20 @@ export default function CalendarPage() {
       </div>
 
       {/* Main content */}
-      <div className="flex flex-1 overflow-hidden">
-        <div className="flex-1 overflow-auto">
-          <Calendar
-            year={year}
-            month={month}
-            leaves={data.leaves as Parameters<typeof Calendar>[0]["leaves"]}
-            schedule={data.schedule as Parameters<typeof Calendar>[0]["schedule"]}
-            holidays={data.holidays as Parameters<typeof Calendar>[0]["holidays"]}
-          />
-        </div>
-        <AIPanel />
+      <div className="flex-1 overflow-hidden">
+        <Calendar
+          year={year}
+          month={month}
+          leaves={data.leaves as Parameters<typeof Calendar>[0]["leaves"]}
+          schedule={data.schedule as Parameters<typeof Calendar>[0]["schedule"]}
+          holidays={data.holidays as Parameters<typeof Calendar>[0]["holidays"]}
+          currentUser={username}
+          isAdmin={false}
+          members={[]}
+          onMutate={fetchData}
+        />
       </div>
+      <FloatingChat />
     </div>
   );
 }
