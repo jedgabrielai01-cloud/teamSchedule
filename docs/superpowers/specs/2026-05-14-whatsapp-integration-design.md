@@ -119,6 +119,39 @@ Four new variables added to `.env`:
 
 ---
 
+## Prerequisites Checklist (manual setup before implementation)
+
+### 1. DuckDNS (~5 minutes)
+- Go to `duckdns.org` and log in
+- Register a subdomain (e.g., `teamschedule.duckdns.org`) and set the IP to `35.196.210.214`
+- Note your DuckDNS **token** — needed for the updater script on the GCP VM
+
+### 2. GCP Firewall
+- Ensure port **443** (HTTPS) is open on the GCP VM's firewall rules (port 80 should already be open)
+
+### 3. Meta Developer Setup (~30 minutes)
+- Go to `developers.facebook.com` and create an account
+- Create a new App → type: **Business**
+- Add the **WhatsApp** product to the app
+- Under WhatsApp → Getting Started, note:
+  - **Phone Number ID**
+  - **App Secret** (under App Settings → Basic)
+- Choose a **verify token** — any random string you make up (e.g., `my-secret-verify-token`)
+- Configure the webhook URL (`https://your-subdomain.duckdns.org/api/whatsapp`) **after** the app is deployed with HTTPS
+
+> **Permanent access token:** The test token from Meta expires every 24 hours. For production, go to Meta Business Manager → System Users → create a System User → assign it to your WhatsApp app → generate a permanent token. Use this in `.env`.
+
+### 4. Values to collect for `.env`
+
+| Variable | Where to get it |
+|---|---|
+| `WHATSAPP_VERIFY_TOKEN` | You choose — any random string |
+| `WHATSAPP_APP_SECRET` | Meta App Settings → Basic |
+| `WHATSAPP_PHONE_NUMBER_ID` | Meta WhatsApp → Getting Started |
+| `WHATSAPP_ACCESS_TOKEN` | Meta System User permanent token |
+
+---
+
 ## What This Does Not Include
 
 - Conversation history or session tracking (fully stateless)
